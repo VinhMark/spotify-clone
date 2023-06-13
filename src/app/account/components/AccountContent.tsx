@@ -34,7 +34,7 @@ const AccountContent = () => {
     setLoading(false);
   };
 
-  console.log(subscription)
+  console.log(subscription);
   return (
     <div className='mb-7 px-6'>
       {!subscription && (
@@ -48,7 +48,14 @@ const AccountContent = () => {
       {subscription && (
         <div className='flex flex-col gap-y-4'>
           <p>
-            You are currently on the <b>{subscription?.prices?.products?.name}</b> plan.
+            You are currently on the{' '}
+            <b>
+              {
+                // @ts-ignore
+                subscription?.prices?.products?.name
+              }
+            </b>{' '}
+            plan.
           </p>
           <Button disabled={loading || isLoading} onClick={redirectToCustomerPortal} className='w-[300px]'>
             Open Custom Portal
